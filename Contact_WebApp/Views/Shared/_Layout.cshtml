@@ -20,22 +20,26 @@
                 <a class="nav-link" asp-controller="Home" asp-action="About">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a>
+                <a class="nav-link" asp-controller="Home" asp-action="Projects">Projects</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Home" asp-action="Projects">Projects</a>
+                <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a>
             </li>
         </ul>
     </header>
-    <content>
-        @RenderBody()
-     </content>
-     <footer>
-        <p class="footer-content" id="date">@DateTime.Now.ToString("yyyy-MM-dd")</p> 
+    <section id="main-content">
+        <h1 class="page-title">@ViewData["Title-header"]</h1>
+        <section id="render-section">
+            @RenderBody()
+        </section>
+       <img id="stock-image" src=@ViewData["Img-src"] alt=@ViewData["Img-desc"] />
+    </section>
+    <footer>
         <p class="footer-content" id="copyright">&copy;Daniella Norén</p>
+        <p class="footer-content" id="date">@DateTime.Now.ToString("yyyy-MM-dd")</p>
 
-        <div>Icons made by <a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26">Icongeek26</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        <div class="footer-content" id="credit">Icons made by <a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26">Icongeek26</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
-     </footer>
+    </footer>
 </body>
 </html>

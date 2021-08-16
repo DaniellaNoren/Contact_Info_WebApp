@@ -1,8 +1,142 @@
 ﻿body {
-    background-color: gray;
+    background-color: #64C9CF;
+    display: grid;
+    height: 100%;
+    grid-template-rows: 10vh 80vh 10vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#render-section{
+    grid-row: 2/3;
+}
+header, footer {
+    width: 100%;
+    background-color: #FFB740;
+    display: grid;
+    overflow: hidden;
+    border: 1px solid #DF711B;
+}
+header {
+    grid-row: 1/2;
+    grid-template-columns: 5vw 3vw 40vw auto;
+    grid-template-rows: 100%;
+}
+#nav-menu {
+    background-color: #DF711B;
+    max-width: 500px;
+    min-width: 100px;
+    grid-column: 3/4;
+    display: flex;
+}
+#nav-menu, #project-list {
+    margin: 0.5em;
+    list-style: none;
+    padding: 0;
+}
+.nav-item {
+    display: inline-block;
+
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-item:hover {
+    background-color: #FDE49C;
+}
+.nav-link {
+    font-size: 2em;
+}
+.nav-link, .project-item h2 a {
+    text-decoration: none;
+    color: black;
+}
+#icon{
+    width: 9vh;
+    height: 9vh;
+    grid-column: 1/2;
+    padding: 0 0.5em 0 0.5em;
 }
 
-#icon{
-    width: 10%;
-    height: 10%;
+footer {
+    grid-row: 3/4;
+    grid-template-columns: 35vw auto auto 35vw;
+    grid-template-rows: 5vh 5vh;
+}
+
+.footer-content {
+    text-align: center;
+    font-size: 1vw;
+}
+#date{
+    grid-column: 3/4;
+}
+#copyright{
+    grid-column: 2/3;
+}
+#credit{
+    grid-column: 2/4;
+    grid-row: 2/3;
+}
+#contact-info {
+    font-size: 1.2vw;
+    padding: 1vw;
+    margin: 0.5vw;
+    width: 30vw;
+    height: 20vh;
+}
+.label{
+    display: inline-block;
+    min-width: 6vw;
+    font-weight: bold;
+    margin-left: 0.5vw;
+}
+
+.page-title, .about-text {
+    font-size: 2vw;
+    margin-left: 0.5vw;
+}
+
+#stock-image {
+    height: 100%;
+    width: 100%;
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: inline-block;
+    width: 25vw;
+    height: 45vh;
+    box-shadow: 1vw 1vw rgba(0, 0, 0, 0.5);
+    margin-left: 2vw;
+}
+#stock-image:hover {
+   border: 1vw solid white;
+   width: 24vw;
+   height: 44vh;
+}
+#main-content{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 10vh auto 5vh;
+}
+#render-section {
+    display: inline-block;
+    height: auto;
+}
+
+.project-item h2 a{
+    font-size: 1.4vw;
+    color: black;
+}
+.project-item h2 a:hover {
+        color: #DF711B;
+}
+.project-item p{
+    font-size: 1.2vw;
+}
+.content-box {
+    background-color: #FDE49C;
+    border: 1px solid #DF711B;
+}
+.about-text{
+    font-size: 1.3vw;
+    margin-left: 1vw;
 }
