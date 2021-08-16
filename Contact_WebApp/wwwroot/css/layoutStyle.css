@@ -78,19 +78,21 @@ footer {
     grid-row: 2/3;
 }
 #contact-info {
-    font-size: 1.2vw;
+    
     padding: 1vw;
     margin: 0.5vw;
     width: 30vw;
-    height: 20vh;
+    height: 25vh;
+}
+.label, .value {
+    font-size: 1.5vw;
 }
 .label{
     display: inline-block;
-    min-width: 6vw;
+    min-width: 7vw;
     font-weight: bold;
     margin-left: 0.5vw;
 }
-
 .page-title, .about-text {
     font-size: 2vw;
     margin-left: 0.5vw;
@@ -121,16 +123,15 @@ footer {
     display: inline-block;
     height: auto;
 }
-
 .project-item h2 a{
-    font-size: 1.4vw;
+    font-size: 1.2vw;
     color: black;
 }
 .project-item h2 a:hover {
-        color: #DF711B;
+   color: #DF711B;
 }
 .project-item p{
-    font-size: 1.2vw;
+    font-size: 1vw;
 }
 .content-box {
     background-color: #FDE49C;
