@@ -25,6 +25,9 @@
             <li class="nav-item">
                 <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-route="fevercheck">Temp check</a>
+            </li>
         </ul>
     </header>
     <section id="main-content">
@@ -32,7 +35,11 @@
         <section id="render-section">
             @RenderBody()
         </section>
-       <img id="stock-image" src=@ViewData["Img-src"] alt=@ViewData["Img-desc"] />
+        @if (ViewData["Img-src"] != null)
+        {
+            <img id="stock-image" src=@ViewData["Img-src"] alt=@ViewData["Img-desc"] />
+        }
+
     </section>
     <footer>
         <p class="footer-content" id="copyright">&copy;Daniella Norén</p>
