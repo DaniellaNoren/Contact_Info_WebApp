@@ -7,17 +7,27 @@ namespace Contact_WebApp.Models
 {
     public class TemperatureUtil
     {
-        private static readonly long FeverStart = 38;
-        private static readonly long HypothermiaEnd = 35;
+        private static readonly double FeverStart = 38.1;
+        private static readonly double HypothermiaEnd = 34.9;
 
-        public static bool HasFever(long temp)
+        public static bool HasFever(int temp)
         {
             return temp >= FeverStart;
         }
 
-        public static bool HasHypothermia(long temp)
+        public static bool HasHypothermia(int temp)
         {
-            return temp < HypothermiaEnd;
+            return temp <= HypothermiaEnd;
+        }
+
+        public static int CelsiusToFahrenheit(int temp)
+        {
+            return (int)(temp * 1.8 + 32);
+        }
+
+        public static int FahrenheitToCelsius(int temp)
+        {
+            return (int)((temp - 32) * 0.5556);
         }
 
     }
@@ -27,7 +37,7 @@ namespace Contact_WebApp.Models
         public bool HasFever { get; set; }
         public bool HasHypothermia { get; set; }
 
-        public IllnessResult(long temp)
+        public IllnessResult(int temp)
         {
             this.HasFever = TemperatureUtil.HasFever(temp);
             this.HasHypothermia = TemperatureUtil.HasHypothermia(temp);

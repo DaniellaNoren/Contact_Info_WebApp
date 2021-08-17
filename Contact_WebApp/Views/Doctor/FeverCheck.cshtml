@@ -7,25 +7,33 @@
     ViewData["Title"] = "Fever";
     ViewData["Title-header"] = "Check for Fever";
 }
-<form action="/fevercheck" method="post">
-    <input type="number" name="temp" value="0.0" />
-    <input type="submit" name="name" value="Check" />
+<form id="formm" action="/fevercheck" method="post">
+
+    <input class="radio-measurement" type="radio" name="measurement" value="C" checked/>Celsius
+    <input class="radio-measurement" type="radio" name="measurement" value="F"/>Fahrenheit
+
+    <input id="temperature-input" type="number" name="temp" value="0" />
+    <input id="submit-btn" type="submit" name="name" value="Check" />
+
 </form>
-<p>
+<div id="display-result">
     @if (Model != null)
     {
         if (@Model.HasFever)
         {
-            <p>You've got fever!</p>
+            <p class="illness-result">You've got fever!</p>
         }
         else if (@Model.HasHypothermia)
         {   
-            <p>You've got hypothermia!</p>
+            <p class="illness-result">You've got hypothermia!</p>
         }
         else 
         {
-            <p>You are perfectly healthy!</p> 
+            <p class="illness-result">You are perfectly healthy!</p> 
         }
     }
-
+ </div>
+<script>
+   
+</script>
    

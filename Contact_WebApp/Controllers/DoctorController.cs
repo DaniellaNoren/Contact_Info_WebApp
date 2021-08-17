@@ -18,8 +18,13 @@ namespace Contact_WebApp.Controllers
         }
 
         [HttpPost("FeverCheck", Name = "fevercheck")]
-        public IActionResult FeverCheck(long temp)
+        public IActionResult FeverCheck(string measurement, int temp)
         {
+            if (measurement.Equals("F"))
+            {
+                temp = TemperatureUtil.FahrenheitToCelsius(temp);
+            }
+
             return View(new IllnessResult(temp));
         }
     }
