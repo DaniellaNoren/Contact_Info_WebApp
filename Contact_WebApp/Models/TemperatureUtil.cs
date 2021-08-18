@@ -7,7 +7,7 @@ namespace Contact_WebApp.Models
 {
     public class TemperatureUtil
     {
-        private static readonly double FeverStart = 38.1;
+        private static readonly double FeverStart = 38.0;
         private static readonly double HypothermiaEnd = 34.9;
 
         public static bool HasFever(int temp)

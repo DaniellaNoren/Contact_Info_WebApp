@@ -1,16 +1,16 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@section styles {
+    <link href="~/css/temperature.css" rel="stylesheet" type="text/css" />
+}
 @model Contact_WebApp.Models.IllnessResult;
 @{
     Layout = "_Layout";
     ViewData["Title"] = "Fever";
     ViewData["Title-header"] = "Check for Fever";
 }
-<form id="formm" action="/fevercheck" method="post">
+<form id="temperature-form" action="/fevercheck" method="post">
 
-    <input class="radio-measurement" type="radio" name="measurement" value="C" checked/>Celsius
-    <input class="radio-measurement" type="radio" name="measurement" value="F"/>Fahrenheit
+    <span id="celsius"><input class="radio-measurement" type="radio" name="measurement" value="C" checked />Celsius</span>
+    <span id="fahrenheit"><input class="radio-measurement" type="radio" name="measurement" value="F" />Fahrenheit</span>
 
     <input id="temperature-input" type="number" name="temp" value="0" />
     <input id="submit-btn" type="submit" name="name" value="Check" />
@@ -21,19 +21,15 @@
     {
         if (@Model.HasFever)
         {
-            <p class="illness-result">You've got fever!</p>
+            <p class="illness-result fever">You've got fever!</p>
         }
         else if (@Model.HasHypothermia)
-        {   
-            <p class="illness-result">You've got hypothermia!</p>
-        }
-        else 
         {
-            <p class="illness-result">You are perfectly healthy!</p> 
+            <p class="illness-result hypo">You've got hypothermia!</p>
+        }
+        else
+        {
+            <p class="illness-result">You are perfectly healthy!</p>
         }
     }
- </div>
-<script>
-   
-</script>
-   
+</div>

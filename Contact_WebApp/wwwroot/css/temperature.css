@@ -1,0 +1,44 @@
+﻿#temperature-form {
+    font-size: 1vw;
+    padding: 1vw;
+    background-color: #FDE49C;
+    display: grid;
+    grid-template-rows: 2vh 2vh 3vh 2vh 2vh;
+    grid-template-columns: 2vw 3vw 2vw 2vw 5vw 2vw 2vw;
+}
+.radio-measurement{
+    width: 1vw;
+    height: 1vw;
+    grid-row: 2/3;
+}
+#fahrenheit{
+    grid-column: 4/6;
+}
+#celsius{
+    grid-column: 2/4;
+}
+#temperature-input{
+    font-size: 1vw;
+    grid-row: 3/4;
+    grid-column: 2/5;
+}
+#submit-btn {
+    height: 1.2vw;
+    padding: 0;
+    font-size: 1vw;
+    grid-row: 5/6;
+    grid-column: 2/5;
+    background-color: #DF711B;
+}
+#submit-btn:hover {
+    background-color: #FFB740;
+}
+.illness-result{
+    font-size: 2.5vw;
+}
+.fever{
+    color: darkred;
+}
+.hypo{
+    color: lightblue;
+}
