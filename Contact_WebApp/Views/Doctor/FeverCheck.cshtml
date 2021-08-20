@@ -1,0 +1,35 @@
+﻿@section styles {
+    <link href="~/css/temperature.css" rel="stylesheet" type="text/css" />
+}
+@model Contact_WebApp.Models.IllnessResult;
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Fever";
+    ViewData["Title-header"] = "Check for Fever";
+}
+<form id="temperature-form" action="/fevercheck" method="post">
+
+    <span id="celsius"><input class="radio-measurement" type="radio" name="measurement" value="C" checked />Celsius</span>
+    <span id="fahrenheit"><input class="radio-measurement" type="radio" name="measurement" value="F" />Fahrenheit</span>
+
+    <input id="temperature-input" type="number" name="temp" value="0" />
+    <input id="submit-btn" type="submit" name="name" value="Check" />
+
+</form>
+<div id="display-result">
+    @if (Model != null)
+    {
+        if (@Model.HasFever)
+        {
+            <p class="illness-result fever">You've got fever!</p>
+        }
+        else if (@Model.HasHypothermia)
+        {
+            <p class="illness-result hypo">You've got hypothermia!</p>
+        }
+        else
+        {
+            <p class="illness-result">You are perfectly healthy!</p>
+        }
+    }
+</div>
