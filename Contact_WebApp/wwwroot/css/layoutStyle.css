@@ -141,3 +141,6 @@ footer {
     font-size: 1.3vw;
     margin-left: 1vw;
 }
+.error-msg {
+    background-color: green;
+}

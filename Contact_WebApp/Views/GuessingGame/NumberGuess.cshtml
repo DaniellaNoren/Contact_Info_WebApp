@@ -1,51 +1,42 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@section styles {
-    <link href="~/css/guessinggame.css" rel="stylesheet" type="text/css" />
+﻿@section styles {
+<link href="~/css/guessinggame.css" rel="stylesheet" type="text/css" />
 }
 @model Contact_WebApp.Models.NumberGuessResult
 
-@{ 
+@{
     int? generatedNumber = Context.Session.GetInt32("number");
     int? numberOfGuesses = Context.Session.GetInt32("numberOfGuesses");
     string highScore = Context.Request.Cookies["High-score"];
-}
 
-@{
-    Layout = "_Layout";
     ViewData["Title"] = "Guessing Game";
     ViewData["Title-header"] = "Guess the number!";
 }
+<form id="guessing-form" action="/GuessingGame" method="post">
+    <input id="guessing-input" type="number" name="guess" value="0" />
+    @if (Model != null && Model.WonGame)
+    {
+        <input class="guessing-submit-btn" type="submit" name="submit" value="Guess" disabled />
+    }
+    else
+    {
+        <input class="guessing-submit-btn" type="submit" name="submit" value="Guess" />
+    }
+</form>
 <div>
-    <form action="/GuessingGame" method="post">
-        <input type="number" name="guess" value="0" />
-        @if (Model != null && Model.WonGame)
-        {
-            <input type="submit" name="submit" value="" disabled />
-        }
-        else
-        {
-            <input type="submit" name="submit" value="" />
-        }
-
-    </form>
-
-
     @if (Model != null)
     {
         if (@Model.WonGame)
         {
-            <p class="guess-result">You won!</p>
-            <a id="reload-btn" asp-route="guessinggame">Number guess</a>
+            <p class="guess-result won">You won!</p>
+            <a id="reload-btn" asp-route="guessinggame">Play again!</a>
         }
         else if (Model.TooHigh)
         {
-            <p class="guess-result">Too high!!</p>
+            <p class="guess-result high">Too high!!</p>
         }
         else if (Model.TooLow)
         {
-            <p class="guess-result">Too low!!</p>
+            <p class="guess-result low">Too low!!</p>
         }
 
         <p id="nr-of-guesses">Number of guesses: @numberOfGuesses</p>
@@ -53,15 +44,25 @@
 
     @if (highScore != null)
     {
-    <ol id="high-score">
-        @{
-            string[] scores = highScore.Split(",");
+        <h2 id="high-score-header">High score:</h2>
+        <ol id="high-score">
+            @{
+                string[] scores = highScore.Split(",");
 
-            foreach (string score in scores)
-            {
-                <li class="score">Guesses: @score</li>
+                foreach (string score in @scores)
+                {
+                    if (string.IsNullOrEmpty(score))
+                    {
+                        <li class="score">...</li>
+                    }
+                    else
+                    {
+                        <li class="score">Guesses: @score</li>
+                    }
+                }
             }
+
+        </ol>
         }
-    </ol>
     }
 </div>

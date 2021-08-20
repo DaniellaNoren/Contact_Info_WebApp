@@ -1,2 +1,55 @@
-﻿body {
+﻿#guessing-form, #high-score {
+    background-color: #FDE49C;
+    padding: 2vw;
+}
+#guessing-input {
+    
+    height: 3vh;
+    font-size: 1.5vw;
+}
+.guessing-submit-btn, #reload-btn {
+    width: 5vw;
+    font-size: 1vw;
+    background-color: #DF711B;
+    display: block;
+    margin-top: 1vh;
+}
+.guessing-submit-btn {
+    height: 5vh;
+}
+.guessing-submit-btn:hover, #reload-btn:hover {
+    background-color: #FFB740;
+}
+.guess-result{
+    font-size: 1.5vw;
+    left: 1.2vw;
+}
+.low{
+    color: rgb(36 16 92);
+}
+.high{
+    color: rgb(84 18 18);
+}
+.won{
+    color: rgb(20 100 12);
+}
+#reload-btn {
+    text-decoration: none;
+    border: 1px solid #FDE49C;
+    color: black;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+}
+#nr-of-guesses{
+    font-size: 1.2vw;
+}
+#high-score-header{
+    font-size: 1.5vw;
+    left: 1.2vw;
+}
+#high-score{
+    font-size: 1vw;
+}
+.score{
+    font-weight: bold;
 }
